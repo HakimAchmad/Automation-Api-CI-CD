@@ -24,3 +24,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+  akun:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run automation api akun
+        run: mvn clean verify
